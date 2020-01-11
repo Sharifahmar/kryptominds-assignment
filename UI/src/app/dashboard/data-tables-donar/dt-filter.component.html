@@ -1,0 +1,14 @@
+<!-- Filter Datatable Options Starts -->
+<section id="filter" class="mb-3">
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+      <ngx-datatable #table class='bootstrap' [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+        [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='rows' [sorts]="[{prop: 'firstName', dir: 'asc'}]">
+      </ngx-datatable>
+    </div>
+  </div>
+  <ng-template #hdrTpl let-column="column">
+    <strong> {{ column.name }}</strong>
+  </ng-template>
+</section>
+<!-- Filter Datatable Options Ends -->

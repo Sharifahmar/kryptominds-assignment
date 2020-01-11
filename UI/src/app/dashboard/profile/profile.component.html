@@ -1,0 +1,242 @@
+<!-- Hidden label form layout section start -->
+<section id="hidden-label-form-layouts">
+  <div class="row text-left justify-content-center" matchHeight="card">
+    <div class="col-md-7">
+      <div class="card">
+        <div class="card-header pb-2">
+          <h4 class="card-title text-center" id="hidden-label-colored-controls">Information</h4>
+        </div>
+        <div class="card-content">
+          <div class="px-3">
+            <form class="form" [formGroup]="profileForm" (ngSubmit)="registerProfile()" novalidate>
+              <div class="form-body">
+                <h4 class="form-section"><i class="ft-info"></i> Personal Information</h4>
+                <div class="row">
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput1">First Name</label>
+                    <input type="text" id="userinput1" class="form-control border-primary" placeholder="First Name"
+                      formControlName="firstName" required>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('firstName').valid && (profileForm.get('firstName').dirty || profileForm.get('firstName').touched)">Please
+                      enter First Name</small>
+                  </div>
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput2">Last Name</label>
+                    <input type="text" id="userinput2" class="form-control border-primary" placeholder="Last Name"
+                      formControlName="lastName" required>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('lastName').valid && (profileForm.get('lastName').dirty || profileForm.get('lastName').touched)">Please
+                      enter Last Name</small>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput1">Email</label>
+                    <input type="text" id="userinput1" class="form-control border-primary" placeholder="Email"
+                      formControlName="email" required>
+                    <small class="form-text text-muted danger"
+                      *ngIf="email.invalid && (profileForm.get('email').dirty || profileForm.get('email').touched)">
+                      <div *ngIf="email.errors?.required">
+                        Please enter Email.
+                      </div>
+                      <div *ngIf="email.errors?.pattern">
+                        Please enter a valid email.
+                      </div>
+                    </small>
+                  </div>
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput2">Mobile Number</label>
+                    <input type="text" id="userinput2" class="form-control border-primary" placeholder="Mobile Number"
+                      formControlName="phoneNumber" required>
+                    <small class="form-text text-muted danger"
+                      *ngIf="phoneNumber.invalid && (profileForm.get('phoneNumber').dirty || profileForm.get('phoneNumber').touched)">
+                      <div *ngIf="phoneNumber.errors?.required">
+                        Please enter Mobile Number.
+                      </div>
+                      <div *ngIf="phoneNumber.errors?.pattern">
+                        Please enter a valid Mobile Number.
+                      </div>
+                    </small>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput1">City</label>
+                    <select id="projectinput7" class="form-control border-primary" formControlName="city" required>
+                      <option value="" selected="" disabled="">City</option>
+                      <option *ngFor="let city of cities" [ngValue]="city">{{city}}</option>
+                    </select>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('city').valid && (profileForm.get('city').dirty || profileForm.get('city').touched)">Please
+                      select City</small>
+                  </div>
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput2">State</label>
+                    <select id="projectinput7" class="form-control border-primary" formControlName="state" required>
+                      <option value="" selected="" disabled="">State</option>
+                      <option *ngFor="let state of states" [ngValue]="state">{{state}}</option>
+                    </select>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('state').valid && (profileForm.get('state').dirty || profileForm.get('state').touched)">Please
+                      select State</small>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput1">Country</label>
+                    <select id="projectinput7" class="form-control border-primary" formControlName="country" required>
+                      <option value="" selected="" disabled="">Country</option>
+                      <option *ngFor="let value of country" [ngValue]="value">{{value}}</option>
+                    </select>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('country').valid && (profileForm.get('country').dirty || profileForm.get('country').touched)">Please
+                      select Country</small>
+                  </div>
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput2">Zipcode</label>
+                    <input type="text" id="userinput2" class="form-control border-primary" placeholder="Pincode"
+                      formControlName="zipCode" required>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('zipCode').valid && (profileForm.get('zipCode').dirty || profileForm.get('zipCode').touched)">Please
+                      enter Pincode</small>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-12 mb-2">
+                    <label class="sr-only" for="userinput8">Address</label>
+                    <textarea id="userinput8" rows="5" class="form-control border-primary" placeholder="Address"
+                      formControlName="address" required></textarea>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('address').valid && (profileForm.get('address').dirty || profileForm.get('address').touched)">Please
+                      enter your Address</small>
+                  </div>
+                </div>
+
+                <h4 class="form-section"><i class="ft-info"></i> Professional Information</h4>
+
+                <div class="row">
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput1">Company Name</label>
+                    <input type="text" id="userinput1" class="form-control border-primary" placeholder="Company Name"
+                      formControlName="cName" required>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('cName').valid && (profileForm.get('cName').dirty || profileForm.get('cName').touched)">
+                      <div *ngIf="profileForm.get('cName').errors?.required">
+                        Please enter Company Name.
+                      </div>
+                    </small>
+                  </div>
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput2">Company Email</label>
+                    <input type="text" id="userinput2" class="form-control border-primary" placeholder="Company Email"
+                      formControlName="cEmail" required>
+                      <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('cEmail').valid && (profileForm.get('cEmail').dirty || profileForm.get('cEmail').touched)">
+                      <div *ngIf="profileForm.get('cEmail').errors?.required">
+                        Please enter Company Email.
+                      </div>
+                      <div *ngIf="profileForm.get('cEmail').errors?.pattern">
+                        Please enter a valid email.
+                      </div>
+                    </small>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput1">Company Website</label>
+                    <input type="text" id="userinput1" class="form-control border-primary" placeholder="Company Website"
+                      formControlName="cWebsite" required>
+                    <small class="form-text text-muted danger"
+                      *ngIf="profileForm.get('cWebsite').invalid && (profileForm.get('cWebsite').dirty || profileForm.get('cWebsite').touched)">
+                      <div *ngIf="profileForm.get('cWebsite').errors?.required">
+                        Please enter Company Website.
+                      </div>
+                    </small>
+                  </div>
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput2">Company Number</label>
+                    <input type="text" id="userinput2" class="form-control border-primary" placeholder="Company Number"
+                      formControlName="cPhoneNumber" required>
+                    <small class="form-text text-muted danger"
+                      *ngIf="profileForm.get('cPhoneNumber').invalid && (profileForm.get('cPhoneNumber').dirty || profileForm.get('cPhoneNumber').touched)">
+                      <div *ngIf="profileForm.get('cPhoneNumber').errors?.required">
+                        Please enter Mobile Number.
+                      </div>
+                      <div *ngIf="profileForm.get('cPhoneNumber').errors?.pattern">
+                        Please enter a valid Mobile Number.
+                      </div>
+                    </small>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput1">City</label>
+                    <select id="projectinput7" class="form-control border-primary" formControlName="cCity" required>
+                      <option value="" selected="" disabled="">City</option>
+                      <option *ngFor="let city of cities" [ngValue]="city">{{city}}</option>
+                    </select>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('cCity').valid && (profileForm.get('cCity').dirty || profileForm.get('cCity').touched)">Please
+                      select City</small>
+                  </div>
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput2">State</label>
+                    <select id="projectinput7" class="form-control border-primary" formControlName="cState" required>
+                      <option value="" selected="" disabled="">State</option>
+                      <option *ngFor="let state of states" [ngValue]="state">{{state}}</option>
+                    </select>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('cState').valid && (profileForm.get('cState').dirty || profileForm.get('cState').touched)">Please
+                      select State</small>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput1">Country</label>
+                    <select id="projectinput7" class="form-control border-primary" formControlName="cCountry" required>
+                      <option value="" selected="" disabled="">Country</option>
+                      <option *ngFor="let value of country" [ngValue]="value">{{value}}</option>
+                    </select>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('cCountry').valid && (profileForm.get('cCountry').dirty || profileForm.get('cCountry').touched)">Please
+                      select Country</small>
+                  </div>
+                  <div class="form-group col-md-6 mb-2">
+                    <label class="sr-only" for="userinput2">Zipcode</label>
+                    <input type="text" id="userinput2" class="form-control border-primary" placeholder="Pincode"
+                      formControlName="cZipCode" required>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('cZipCode').valid && (profileForm.get('cZipCode').dirty || profileForm.get('cZipCode').touched)">Please
+                      enter Pincode</small>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-12 mb-2">
+                    <label class="sr-only" for="userinput8">Company Address</label>
+                    <textarea id="userinput8" rows="5" class="form-control border-primary" placeholder="Company Address"
+                      formControlName="cAddress" required></textarea>
+                    <small class="form-text text-muted danger"
+                      *ngIf="!profileForm.get('cAddress').valid && (profileForm.get('cAddress').dirty || profileForm.get('cAddress').touched)">Please
+                      enter your Company Address</small>
+                  </div>
+                </div>
+              </div>
+              <div class="form-actions right">
+                <button type="button" class="btn btn-raised btn-warning mr-1" (click)=cancelProfile();>
+                  <i class="ft-x"></i> Cancel
+                </button>
+                <button type="submit" class="btn btn-raised btn-primary" [disabled]="profileForm.invalid">
+                  <i class="fa fa-check-square-o"></i> Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- // Hidden label form layout section end -->
