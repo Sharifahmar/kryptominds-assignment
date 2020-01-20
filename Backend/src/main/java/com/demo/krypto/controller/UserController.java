@@ -119,7 +119,7 @@ public class UserController {
 
 		} catch (CustomException e) {
 
-			return new ResponseEntity(new ApiResponseModel("Error Occur while Registratio..!!", false),
+			return new ResponseEntity(new ApiResponseModel("Error Occur while Registration..!!", false),
 					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
